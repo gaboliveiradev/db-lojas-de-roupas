@@ -1,0 +1,86 @@
+Estado (
+    Id [PK],
+    Nome,
+    Sigla
+)
+
+Endereco (
+    Id [PK],
+    Nome_Endereco,
+    CEP,
+    Bairro,
+    Cidade,
+    Numero,
+    id_estado[FK]
+)
+
+Funcionario (
+    Id [PK],
+    Nome,
+    Genero,
+    Telefone,
+    Cargo,
+    id_endereco [FK]
+)
+
+Compra (
+    Id [PK],
+    Nome,
+    Valor,
+    Quantidade,
+    Data_Compra,
+    id_fornecedor [FK]
+)
+
+Venda (
+    Id [PK],
+    Quantidade_Produto,
+    Data_Venda,
+    Valor_Total,
+    id_cliente [FK],
+    id_produto [FK],
+    id_funcionario [FK]
+)
+
+Cliente (
+    Id [PK],
+    Nome,
+    RG,
+    CPF,
+    Data_Nasc,
+    Genero,
+    id_endereco [FK]
+)
+
+Fornecedor (
+    Id [PK],
+    Nome,
+    CNPJ,
+    Email,
+    Telefone,
+    id_endereco [FK]
+)
+
+Produto (
+    Id [PK],
+    Nome,
+    Valor,
+    Marca,
+    Quantidade,
+    id_fornecedor [FK]
+)
+
+Venda_Produto_Assoc (
+    id_produto [PK, FK],
+    id_venda [PK, FK]
+)
+
+Compra_Fornecedor_Assoc (
+    id_compra [PK, FK]
+    id_fornecedor [PK, FK]
+)
+
+Produto_Fornecedor_Assoc (
+    id_produto [PK, FK],
+    id_fornecedor [PK, FK]
+)
